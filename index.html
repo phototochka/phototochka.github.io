@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ФотоТочка — Фотоуслуги и печать в Самаре</title>
+  <meta name="description" content="Профессиональные фотоуслуги и печать в Самаре: фото на документы, фотопечать, полиграфия, реставрация фото, дизайн" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+   :root {
+      --bg-primary: #0f0f11;
+      --bg-secondary: #1a1a1f;
+      --bg-tertiary: #23232b;
+      --bg-card: #1e1e26;
+      --text-primary: #ffffff;
+      --text-secondary: #b8b8d1;
+      --text-muted: #7a7a95;
+      --accent: #ffd93d;
+      --accent-hover: #ffc400;
+      --border: #2d2d3a;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      --transition: all 0.3s ease;
+      --radius: 16px;
+      --radius-sm: 12px;
+      --radius-lg: 24px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    a:hover {
+      color: var(--accent-hover);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header & Navigation */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(15, 15, 17, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.4rem;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--accent), #ff8a8e);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: white;
+      font-size: 1.1rem;
+    }
+
+    .logo span {
+      background: linear-gradient(90deg, var(--accent), #ff8a8e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+    }
+
+    nav a {
+      color: var(--text-secondary);
+      font-weight: 500;
+      font-size: 0.95rem;
+      position: relative;
+      padding: 4px 0;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--text-primary);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    nav a:hover::after,
+    nav a.active::after {
+      width: 100%;
+    }
+
+    .header-contacts {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .phone {
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .burger span {
+      width: 24px;
+      height: 2px;
+      background: var(--text-primary);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 160px 0 100px;
+      background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 90, 95, 0.12) 0%, transparent 70%);
+      z-index: 0;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(100, 100, 255, 0.08) 0%, transparent 70%);
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 650px;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      letter-spacing: -1.5px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, var(--accent), #ff8a8e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      margin-bottom: 36px;
+      max-width: 580px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.05rem;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, var(--accent), #ff7a7f);
+      color: white;
+      box-shadow: 0 4px 20px rgba(255, 90, 95, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(255, 90, 95, 0.5);
+    }
+
+    .btn-secondary {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-card);
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 50px;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--accent), #ff8a8e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stat-label {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Services Section */
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 64px;
+    }
+
+    .section-title {
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -0.8px;
+    }
+
+    .section-subtitle {
+      color: var(--text-secondary);
+      font-size: 1.15rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      transition: var(--transition);
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255, 90, 95, 0.3);
+      box-shadow: var(--shadow);
+    }
+
+    .service-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, rgba(255, 90, 95, 0.15), rgba(255, 138, 142, 0.1));
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      color: var(--accent);
+    }
+
+    .service-card h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+
+    .service-price {
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 1.1rem;
+      margin-top: auto;
+    }
+
+    /* Features Section */
+    .features {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 32px;
+      margin-top: 40px;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 16px;
+    }
+
+    .feature-icon {
+      min-width: 48px;
+      height: 48px;
+      background: var(--bg-tertiary);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .feature-content h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .feature-content p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    /* Pricing Section */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+      margin-top: 40px;
+    }
+
+    .price-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 40px 36px;
+      border: 1px solid var(--border);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .price-card.popular {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(255, 90, 95, 0.2), var(--shadow);
+    }
+
+    .price-card.popular::before {
+      content: 'Популярное';
+      position: absolute;
+      top: 20px;
+      right: -30px;
+      background: var(--accent);
+      color: white;
+      padding: 4px 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transform: rotate(45deg);
+      letter-spacing: 1px;
+    }
+
+    .price-card h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .price-card .price {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin: 16px 0;
+      background: linear-gradient(90deg, var(--accent), #ff8a8e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .price-card .price span {
+      font-size: 1rem;
+      font-weight: 400;
+      -webkit-text-fill-color: var(--text-secondary);
+    }
+
+    .price-card ul {
+      list-style: none;
+      margin: 24px 0;
+      flex-grow: 1;
+    }
+
+    .price-card li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .price-card li::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    .price-card li:last-child {
+      border-bottom: none;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      background: var(--bg-secondary);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+      margin-top: 40px;
+    }
+
+    .testimonial-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 32px;
+      border: 1px solid var(--border);
+    }
+
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #ff8a8e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .testimonial-author h4 {
+      font-weight: 600;
+      font-size: 1.15rem;
+    }
+
+    .testimonial-author p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .testimonial-text {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .testimonial-text::before {
+      content: '"';
+      position: absolute;
+      left: 0;
+      top: -8px;
+      font-size: 3rem;
+      color: rgba(255, 90, 95, 0.2);
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+
+    /* Contact Form */
+    .contact-section {
+      background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 48px;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .contact-info p {
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      font-size: 1.05rem;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .contact-icon {
+      min-width: 40px;
+      height: 40px;
+      background: var(--bg-tertiary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .contact-text h4 {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .contact-text p,
+    .contact-text a {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .social-link {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--bg-tertiary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      transition: var(--transition);
+      color: var(--text-secondary);
+    }
+
+    .social-link:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    .contact-form {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      border: 1px solid var(--border);
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 16px 20px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      color: var(--text-primary);
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(255, 90, 95, 0.2);
+    }
+
+    textarea.form-control {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .form-note {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 6px;
+      display: block;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      padding: 64px 0 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-col h4 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      position: relative;
+      padding-bottom: 12px;
+    }
+
+    .footer-col h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .footer-col p {
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+      transform: translateX(4px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .hero h1 {
+        font-size: 2.6rem;
+      }
+      
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg-secondary);
+        flex-direction: column;
+        padding: 24px;
+        gap: 16px;
+        border-bottom: 1px solid var(--border);
+      }
+      
+      nav ul.active {
+        display: flex;
+      }
+      
+      .burger {
+        display: flex;
+      }
+      
+      .header-contacts {
+        display: none;
+      }
+      
+      .hero {
+        padding: 140px 0 80px;
+      }
+      
+      .section {
+        padding: 80px 0;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .hero-stats {
+        gap: 24px;
+      }
+      
+      .stat-value {
+        font-size: 1.7rem;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .section-subtitle {
+        font-size: 1.05rem;
+      }
+      
+      .contact-form {
+        padding: 32px 24px;
+      }
+      
+      .price-card.popular::before {
+        font-size: 0.75rem;
+        padding: 3px 30px;
+      }
+    }
+
+    /* Animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate {
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    .animate-delay-1 { animation-delay: 0.1s; }
+    .animate-delay-2 { animation-delay: 0.2s; }
+    .animate-delay-3 { animation-delay: 0.3s; }
+    .animate-delay-4 { animation-delay: 0.4s; }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      animation: bounce 2s infinite;
+    }
+
+    .scroll-indicator svg {
+      width: 24px;
+      height: 24px;
+      color: var(--accent);
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      40% {
+        transform: translateX(-50%) translateY(-10px);
+      }
+      60% {
+        transform: translateX(-50%) translateY(-5px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-inner">
+      <a href="#" class="logo">
+        <div class="logo-icon">📷</div>
+        ФотоТочка
+      </a>
+      
+      <nav>
+        <ul id="main-menu">
+          <li><a href="#services" class="active">Услуги</a></li>
+          <li><a href="#pricing">Цены</a></li>
+          <li><a href="#portfolio">Портфолио</a></li>
+          <li><a href="#reviews">Отзывы</a></li>
+          <li><a href="#contact">Контакты</a></li>
+        </ul>
+        <button class="burger" id="burger-btn" aria-label="Меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+      
+      <div class="header-contacts">
+        <a href="tel:+79170360995" class="phone">+7 (917) 036-09-95</a>
+        <a href="#contact" class="btn btn-primary">Заказать</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content animate">
+        <h1>Профессиональные <span>фотоуслуги</span> и печать в Самаре</h1>
+        <p>Помогаем частным лицам и бизнесу решать задачи, связанные с фотографией и печатью. Качество, скорость и приятные цены.</p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary">Заказать фотосессию</a>
+          <a href="#services" class="btn btn-secondary">Наши услуги</a>
+        </div>
+      </div>
+      
+      <div class="hero-stats">
+        <div class="stat-item animate animate-delay-1">
+          <div class="stat-value">500+</div>
+          <div class="stat-label">Довольных клиентов</div>
+        </div>
+        <div class="stat-item animate animate-delay-2">
+          <div class="stat-value">10 мин</div>
+          <div class="stat-label">Фото на документы</div>
+        </div>
+        <div class="stat-item animate animate-delay-3">
+          <div class="stat-value">100%</div>
+          <div class="stat-label">Гарантия качества</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="scroll-indicator">
+      <span></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 5v14M19 12l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Наши услуги</h2>
+        <p class="section-subtitle">Полный спектр фотоуслуг и полиграфических решений для ваших задач</p>
+      </div>
+      
+      <div class="services-grid">
+        <div class="service-card animate">
+          <div class="service-icon">🤝</div>
+          <h3>HoReCa (Хорека)</h3>
+          <p>Размещение вашей рекламной продукции (буклеты, визитки, рекламные флаеры и т.д.) в нашем офисе.</p>
+          <div class="service-price">от 1 000 ₽/мес</div>
+        </div>
+        
+        <div class="service-card animate animate-delay-1">
+          <div class="service-icon">📸</div>
+          <h3>Фото на документы</h3>
+          <p>Паспорт РФ, загранпаспорт, 3х4, 4х6, 9х12 и другие форматы. Оформление в форме или деловом стиле.</p>
+          <div class="service-price">от 420 ₽</div>
+        </div>
+        
+        <div class="service-card animate animate-delay-2">
+          <div class="service-icon">🫶</div>
+          <h3>Фотопечать</h3>
+          <p>До формата А4 на профессиональной фотобумаге. Яркие, насыщенные цвета, без искажений и потери качества.</p>
+          <div class="service-price">от 25 ₽/шт</div>
+        </div>
+        
+        <div class="service-card animate animate-delay-3">
+          <div class="service-icon">🫶</div>
+          <h3>Полиграфия</h3>
+          <p>Визитки, меню, прейскуранты, приглашения, буклеты и т.п. От дизайна до печати — всё в одном месте.</p>
+          <div class="service-price">по запросу</div>
+        </div>
+        
+        <div class="service-card animate">
+          <div class="service-icon">🖨️</div>
+          <h3>Ламинирование и сканирование</h3>
+          <p>Защита документов и фото от влаги и износа. Цифровизация документов в высоком качестве.</p>
+          <div class="service-price">от 50 ₽/лист</div>
+        </div>
+        
+        <div class="service-card animate animate-delay-1">
+          <div class="service-icon">✨</div>
+          <h3>Реставрация старых фотографий</h3>
+          <p>Восстановление порванных, выцветших, повреждённых снимков. Вернём память в идеальное состояние.</p>
+          <div class="service-price">от 500 ₽</div>
+        </div>
+        
+        <div class="service-card animate animate-delay-2">
+          <div class="service-icon">💻</div>
+          <h3>Дизайн и работа в Photoshop</h3>
+          <p>Индивидуальный подход: от идеи — до готового файла для печати. Коррекция, ретушь, коллажи.</p>
+          <div class="service-price">от 300 ₽/услуга</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section features">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Почему выбирают «ФотоТочку»?</h2>
+        <p class="section-subtitle">Мы ценим ваше время и доверие, поэтому предлагаем лучшие условия</p>
+      </div>
+      
+      <div class="features-grid">
+        <div class="feature-item animate">
+          <div class="feature-icon">👍</div>
+          <div class="feature-content">
+            <h4>Качество выше среднего</h4>
+            <p>Используем профессиональное оборудование и материалы, чтобы результат соответствовал высоким стандартам.</p>
+          </div>
+        </div>
+        
+        <div class="feature-item animate animate-delay-1">
+          <div class="feature-icon">⌚</div>
+          <div class="feature-content">
+            <h4>Быстро и без задержек</h4>
+            <p>Фото на документы — за 10–15 минут. Полиграфия — в течение дня. Срочные заказы выполняем в приоритете.</p>
+          </div>
+        </div>
+        
+        <div class="feature-item animate animate-delay-2">
+          <div class="feature-icon">💰</div>
+          <div class="feature-content">
+            <h4>Приятные цены</h4>
+            <p>Доступная стоимость без скрытых платежей. Скидки постоянным клиентам и при больших заказах.</p>
+          </div>
+        </div>
+        
+        <div class="feature-item animate animate-delay-3">
+          <div class="feature-icon">🚴‍♂️</div>
+          <div class="feature-content">
+            <h4>Удобная доставка</h4>
+            <p>Доставка по Самаре от 100 ₽. Бесплатная доставка при заказе от 1000 ₽. Возможна отправка по России.</p>
+          </div>
+        </div>
+        
+        <div class="feature-item animate">
+          <div class="feature-icon">🔹</div>
+          <div class="feature-content">
+            <h4>100% легально</h4>
+            <p>Работаем как самозанятый. Предоставляем чек в электронном виде, при необходимости — распечатываем.</p>
+          </div>
+        </div>
+        
+        <div class="feature-item animate animate-delay-1">
+          <div class="feature-icon">📱</div>
+          <div class="feature-content">
+            <h4>Удалённое сотрудничество</h4>
+            <p>Нет времени приехать? Обсудим все детали онлайн, изготовим заказ и доставим в удобное для вас место.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Популярные услуги</h2>
+        <p class="section-subtitle">Прозрачные цены без скрытых доплат. Точная стоимость зависит от сложности заказа</p>
+      </div>
+      
+      <div class="pricing-grid">
+        <div class="price-card animate">
+          <h3>Фото на документы</h3>
+          <div class="price">420 ₽ <span>/ комплект</span></div>
+          <ul>
+            <li>Паспорт РФ, загранпаспорт</li>
+            <li>Форматы 3х4, 4х6, 9х12</li>
+            <li>Оформление в деловом стиле</li>
+            <li>Готовность за 10-15 минут</li>
+            <li>Цифровая копия в подарок</li>
+          </ul>
+          <a href="#contact" class="btn btn-secondary">Заказать</a>
+        </div>
+        
+        <div class="price-card popular animate animate-delay-1">
+          
+          <div class="price">от 20 ₽ <span>/ фото</span></div>
+          <ul>
+            <li>Профессиональная фотобумага</li>
+            <li>Яркие насыщенные цвета</li>
+            <li>Без искажений и потерь качества</li>
+            <li>Срочная печать за 30 минут</li>
+            <li>Скидки от 50 штук</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Заказать</a>
+        </div>
+        
+        <div class="price-card animate animate-delay-2">
+          <h3>Реставрация фото</h3>
+          <div class="price">500 ₽ <span>/ снимок</span></div>
+          <ul>
+            <li>Восстановление порванных фото</li>
+            <li>Устранение выцветания и пятен</li>
+            <li>Цифровая обработка в Photoshop</li>
+            <li>Печать на качественной бумаге</li>
+            <li>Конфиденциальность гарантирована</li>
+          </ul>
+          <a href="#contact" class="btn btn-secondary">Заказать</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- Testimonials Section -->
+  <section class="section testimonials" id="reviews">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Отзывы клиентов</h2>
+        <p class="section-subtitle">Что говорят о нас те, кто уже воспользовался нашими услугами</p>
+      </div>
+      
+      <div class="testimonials-grid">
+        <div class="testimonial-card animate">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">А</div>
+            <div class="testimonial-author">
+              <h4>Анна К.</h4>
+              <p>Заказала фото на паспорт</p>
+            </div>
+          </div>
+          <p class="testimonial-text">Нужно было срочно сделать фото на загранпаспорт. Пришла в «ФотоТочку» без записи — через 12 минут уже держала в руках готовый комплект! Качество отличное, цена приятная. Обязательно вернусь за печатью семейных фото.</p>
+        </div>
+        
+        <div class="testimonial-card animate animate-delay-1">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">М</div>
+            <div class="testimonial-author">
+              <h4>Михаил П.</h4>
+              <p>Владелец кафе</p>
+            </div>
+          </div>
+          <p class="testimonial-text">Разместили в офисе «ФотоТочки» наши рекламные буклеты. За месяц получили более 30 новых клиентов, которые пришли именно по флаерам! Очень удобно и выгодно. Спасибо за профессиональный подход и помощь в продвижении нашего бизнеса.</p>
+        </div>
+        
+        <div class="testimonial-card animate animate-delay-2">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">Е</div>
+            <div class="testimonial-author">
+              <h4>Екатерина В.</h4>
+              <p>Реставрация фото</p>
+            </div>
+          </div>
+          <p class="testimonial-text">Принесла старую фотографию бабушки, которая почти рассыпалась от времени. Ребята не только восстановили снимок, но и сделали цифровую копию в высоком качестве. Когда увидела результат — не сдержала слёз! Это бесценно. Рекомендую всем, кто хочет сохранить память о близких.</p>
+        </div>
+      </div>
+      
+      <!-- Кнопка со ссылкой на Яндекс.Отзывы -->
+      <div style="text-align: center; margin-top: 48px;">
+        <a href="https://yandex.ru/profile/219879422911" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          ⭐ Все отзывы на Яндекс
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Свяжитесь с нами</h2>
+        <p class="section-subtitle">Оставьте заявку, и мы свяжемся с вами в течение 15 минут</p>
+      </div>
+      
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <h3>Контакты и адрес</h3>
+          <p>Мы находимся в центре Самары и работаем ежедневно. Приезжайте лично или заказывайте услуги онлайн — как вам удобнее.</p>
+          
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div class="contact-text">
+                <h4>Адрес</h4>
+                <p>г. Самара, ул. Дыбенко, 122</p>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div class="contact-text">
+                <h4>Телефон</h4>
+                <a href="tel:+79170360995">+7 (917) 036-09-95</a>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">✉️</div>
+              <div class="contact-text">
+                <h4>Email</h4>
+                <a href="mailto:PhotoTochka28@yandex.ru">PhotoTochka28@yandex.ru</a>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">🕒</div>
+              <div class="contact-text">
+                <h4>Режим работы</h4>
+                <p>Ежедневно: 09:30 — 19:00</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="social-links">
+            <a href="https://tenchat.ru/5089269" class="social-link" aria-label="TenChat">💬</a>
+            <a href="https://vk.com/id811050896" class="social-link" aria-label="VK">VK</a>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="#" class="logo" style="margin-bottom: 20px; display: inline-flex; align-items: center; gap: 10px;">
+            <div class="logo-icon">📷</div>
+            ФотоТочка
+          </a>
+          <p>Профессиональные фотоуслуги и печать в Самаре. Качество, скорость и приятные цены для частных лиц и бизнеса.</p>
+          <div class="social-links" style="margin-top: 16px;">
+            
+            <a href="https://tenchat.ru/5089269" class="social-link">💬</a>
+            <a href="https://vk.com/id811050896" class="social-link">VK</a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Услуги</h4>
+          <ul class="footer-links">
+            <li><a href="#services">📸 Фото на документы</a></li>
+            <li><a href="#services">🫶 Фотопечать до А4</a></li>
+            <li><a href="#services">🫶 Полиграфия и дизайн</a></li>
+            <li><a href="#services">✨ Реставрация фото</a></li>
+            <li><a href="#services">🖨️ Ламинирование</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Информация</h4>
+          <ul class="footer-links">
+            <li><a href="#pricing">Цены и акции</a></li>
+            <li><a href="#">Доставка и оплата</a></li>
+            <li><a href="#">Гарантии качества</a></li>
+            <li><a href="#">Вопросы и ответы</a></li>
+            <li><a href="#">Политика конфиденциальности</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Контакты</h4>
+          <ul class="footer-links">
+            <li><a href="tel:+79170360995">📞 +7 (917) 036-09-95</a></li>
+            <li><a href="mailto:PhotoTochka28@yandex.ru">✉️ PhotoTochka28@yandex.ru</a></li>
+            <li><span>📍 г. Самара, ул. Дыбенко, 122</span></li>
+            <li><span>🕒 Ежедневно: 9:30 — 19:00</span></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>© 2024 «ФотоТочка». Все права защищены.</p>
+        <p style="margin-top: 8px; font-size: 0.85rem; color: var(--text-muted);">
+          Сайт разработан с любовью к фотографии. Не является публичной офертой.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const burgerBtn = document.getElementById('burger-btn');
+    const mainMenu = document.getElementById('main-menu');
+    
+    burgerBtn.addEventListener('click', () => {
+      mainMenu.classList.toggle('active');
+      burgerBtn.classList.toggle('active');
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if(targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if(targetElement) {
+          // Close mobile menu if open
+          mainMenu.classList.remove('active');
+          burgerBtn.classList.remove('active');
+          
+          // Smooth scroll
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Form submission handler
+    const orderForm = document.getElementById('order-form');
+    if(orderForm) {
+      orderForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Simple validation
+        const name = document.getElementById('name').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        
+        if(!name || !phone) {
+          alert('Пожалуйста, заполните обязательные поля');
+          return;
+        }
+        
+        // Show success message (in real app, send to server)
+        alert('Спасибо за заявку! Мы свяжемся с вами в течение 15 минут.');
+        orderForm.reset();
+      });
+    }
+    
+    // Animation on scroll (simple version)
+    const animateElements = document.querySelectorAll('.animate');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    animateElements.forEach(el => {
+      el.style.opacity = 0;
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+    
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      if(window.scrollY > 50) {
+        header.style.background = 'rgba(15, 15, 17, 0.98)';
+        header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.25)';
+      } else {
+        header.style.background = 'rgba(15, 15, 17, 0.92)';
+        header.style.boxShadow = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
